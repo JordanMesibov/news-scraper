@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/JordanMesibov/news-scraper/issues"
   },
-  "homepage": "https://github.com/JordanMesibov/news-scraper#readme"
+  "homepage": "https://github.com/JordanMesibov/news-scraper#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.16",
+    "morgan": "^1.9.1"
+  }
 }
