@@ -46,7 +46,7 @@ app.get("/scrape", function (req, res) {
 });
 
 // in the news db I made, GET from the headlines
-app.get("/headlines", function (req, res) {
+app.get("/articles", function (req, res) {
   db.headlines.find({}).then(function (dbArticle) {
     res.json(dbArticle);
   }).catch(err => {
@@ -55,7 +55,7 @@ app.get("/headlines", function (req, res) {
 });
 
 // in the news db I made, GET the headlines/articles by their id parameter using express (app)
-app.get("/headlines/:id", function (req, res) {
+app.get("/articles/:id", function (req, res) {
   db.headlines.findOne({ _id: req.params.id }).populate("note").then(function (dbArticle) {
     res.json(dbArticle);
   }).catch(function(err) {
@@ -64,7 +64,7 @@ app.get("/headlines/:id", function (req, res) {
 });
 
 // in the news db I made, set up route for changing any articles' comment(s)
-app.post("/headlines/:id", function (req, res) {
+app.post("/articles/:id", function (req, res) {
   db.Note.create(req.body).then(function (dbNote) {
     return db.Article.findOneAndUpdate( {_id: req.params.id }, { new: true });
   }).then(function(dbArticle) {
